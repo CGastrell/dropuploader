@@ -23,7 +23,7 @@ import NAME from 'index.js'
 
 window.ClassyName = NAME;
 ```
-This will allow you to manually render you ClassyName component on the page you want to insert it:
+This will allow you to manually render your ClassyName component on the page you want to insert it:
 ```html
 <head>
   <script src="https://fb.me/react-15.2.1.min.js"></script>
