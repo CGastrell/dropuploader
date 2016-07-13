@@ -9,8 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "react": "^15.2.1",
-    "react-dropzone": "^3.5.3"
+    "react-dropzone": "^3.5.3",
+    "superagent": "^2.0.0"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
