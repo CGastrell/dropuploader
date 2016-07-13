@@ -15,6 +15,10 @@ module.exports = (function config() {
       filename: 'bundle.js',
       publicPath: '/'
     },
+    externals: {
+      // Use external version of React
+      "react": "React"
+    },
     plugins: [
       // new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
