@@ -6,8 +6,8 @@ Single simple react component based on [react-dropzone](https://github.com/okone
 
 ### Scenario
   * Developed some react component with [heatpack](https://github.com/insin/react-heatpack)
-  * Built the [smallest version of it](https://github.com/CGastrell/dropuploader) and...
-  * Want to put it on a live page simple and fast
+  * Want to build the [smallest version of it](https://github.com/CGastrell/dropuploader) and...
+  * Want to put it on a live page simple and fast (or maybe include it on some page)
 
 ### Files
 
@@ -52,11 +52,18 @@ Well... the webpack build will go here as `bundle.js`
 ### Instructions
 This is some sort of boilerplate. The idea is:
   * Copy webpack.config.js
-  * Get dev dependencies (for webpack to work correctly)
+  * Get dev dependencies (for webpack to work correctly. This is the minimal set I found to work OK. See issues below)
   * run `webpack -p` (-p is *production* mode, not much difference)
   * Get your bundle from `./build` directory and import it on a live page with `React` and `ReactDOM`
   * Render it in the hardcoded snippet:
 ```<script type="text/babel">ReactDOM.render(<YOUR_MAPPED_CLASSNAME />, document.wherever);</script>```
+
+### Issues
+When running `webpack` I encountered an error. It seems [react-dropzone](https://github.com/okonet/react-dropzone)
+has an undeclared dependency or maybe this is some babel issue. The thing is, the react-dropzone dir had a `.babelrc`
+with a `add-module-exports` plugin that doesn't get installed. At some point (I'm really new at this, sorry)
+this `.babelrc` file gets in the webpack process and, not finding the plugin, crashes. For the moment I simply
+deleted the file (`rm node_modules/react-dropzone/.babelrc`) and the process went well. I have to look into it, let this be here in case you stumble upon the same thing.
 
 ### Next
 Keep checking on webpack config to get the most performant solution.
