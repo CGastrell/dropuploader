@@ -19,7 +19,7 @@ The result is the one used in this repo which, I think, is pretty decent.
 ### mapper.js
 This is the fake entry point for webpack. Why? Because heatpack asumes your little component
 will `export default React.createClass`. And so, to be able to access this component from the page, I'll
-importing the module and map it to some `window.ComponentClassName`. Long story short:
+import the module on this file and map it to some `window.ComponentClassName`. Long story short:
 ```javascript
 import leComponent from 'index.js' 
 
@@ -27,7 +27,7 @@ import leComponent from 'index.js'
 // global so it is accessible
 window.ClassyName = leComponent;
 ```
-This will allow you to manually render your ClassyName component on the page you want to insert it:
+This will allow you to manually render your *ClassyName* component on the page you want to insert it:
 ```html
 <head>
   <script src="https://fb.me/react-15.2.1.min.js"></script>
