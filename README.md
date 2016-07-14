@@ -6,8 +6,8 @@ Single simple react component based on [react-dropzone](https://github.com/okone
 
 ### Scenario
   * Developed some react component with [heatpack](https://github.com/insin/react-heatpack)
-  * Build the smallest version of it and...
-  * Put it on a live page
+  * Built the [smallest version of it](https://github.com/CGastrell/dropuploader) and...
+  * Want to put it on a live page simple and fast
 
 ### Files
 
