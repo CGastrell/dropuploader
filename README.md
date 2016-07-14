@@ -1,27 +1,31 @@
 # dropuploader
 
-Single simple react component based on react-dropzone
+Single simple react component based on [react-dropzone](https://github.com/okonet/react-dropzone)
 
 ## Test
 
 ### Scenario
-  * Developed some react component with heatpack
-  * Want to build the smallest version of it and...
-  * Want to put it on a live page
+  * Developed some react component with [heatpack](https://github.com/insin/react-heatpack)
+  * Build the smallest version of it and...
+  * Put it on a live page
 
 ### Files
 
 #### webpack.config.js
-I tried copying the same config the guys from heatpack are using, but had to get rid of all the
-hot-reload and babel plugins involved in that matter. The result is the one in this repo which, I think, is pretty decent.
+I tried copying the same config the guys from [heatpack](https://github.com/insin/react-heatpack) are using,
+but had to get rid of all the hot-reload and babel plugins involved in that matter.
+The result is the one used in this repo which, I think, is pretty decent.
 
 ### mapper.js
-This is the fake entry point for webpack. Why? Because heatpack asumes you little component will `export default React.createClass`
-and so, to be able to access this component I'll be mapping it some `window.ComponentClassName`. Long story short:
+This is the fake entry point for webpack. Why? Because heatpack asumes your little component
+will `export default React.createClass`. And so, to be able to access this component from the page, I'll
+importing the module and map it to some `window.ComponentClassName`. Long story short:
 ```javascript
-import NAME from 'index.js' 
+import leComponent from 'index.js' 
 
-window.ClassyName = NAME;
+// ClassyName will be the tag/component you will render. Store it on
+// global so it is accessible
+window.ClassyName = leComponent;
 ```
 This will allow you to manually render your ClassyName component on the page you want to insert it:
 ```html
@@ -35,7 +39,7 @@ This will allow you to manually render your ClassyName component on the page you
   <script src="bundle.js"></script>
   <script type="text/babel">
     ReactDOM.render(
-      <ClassyName />,
+      <ClassyName />, /* le class name variable from the mapper file */
       document.getElementById('app')
     );
   </script>
@@ -43,17 +47,21 @@ This will allow you to manually render your ClassyName component on the page you
 ```
 
 #### build/
-Well... the webpack build will go here.
+Well... the webpack build will go here as `bundle.js`
 
 ### Instructions
 This is some sort of boilerplate. The idea is:
   * Copy webpack.config.js
   * Get dev dependencies (for webpack to work correctly)
-  * run `webpack -p`
+  * run `webpack -p` (-p is *production* mode, not much difference)
   * Get your bundle from `./build` directory and import it on a live page with `React` and `ReactDOM`
-  * Render it with an extra:
+  * Render it in the hardcoded snippet:
 ```<script type="text/babel">ReactDOM.render(<YOUR_MAPPED_CLASSNAME />, document.wherever);</script>```
+
+### Next
+Keep checking on webpack config to get the most performant solution.
 
 # GOOD LUCK!
 
-Check https://github.com/cgastrell/dropage for a single express page serving this kind of solution
+Check https://github.com/cgastrell/dropage for a single [express](http://expressjs.com/) page
+serving this (exact) solution.
